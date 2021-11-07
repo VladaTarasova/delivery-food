@@ -45,8 +45,8 @@ logInForm.addEventListener('submit', (event) => {
   if (inputLogin.value == '' || inputPassword.value == '') {
     alert("Вы заполнили не все поля");
     return false;
-  } 
-
+  }
+  
   const user = {
     login: inputLogin.value,
     password: inputPassword.value
