@@ -1,28 +1,16 @@
-const cardsMenu = document.querySelector('.cards-menu');
+const cardsMenu = document.querySelector(".cards-menu");
 
 const changeTitle = (restaurant) => {
-  const restaurantTitle = document.querySelector('.restaurant-title');
+  const restaurantTitle = document.querySelector(".restaurant-title");
+  const restaurantRating = document.querySelector(".rating");
+  const restaurantPrice = document.querySelector(".price");
+  const restaurantCategory = document.querySelector(".category");
 
   restaurantTitle.textContent = restaurant.name;
-};
-
-const changeRating = (restaurant) => {
-  const restaurantRating = document.querySelector('.rating');
-
   restaurantRating.textContent = restaurant.stars;
-}
-
-const changePrice = (restaurant) => {
-  const restaurantPrice = document.querySelector('.price');
-
   restaurantPrice.textContent = `От ${restaurant.price} ₽`;
-}
-
-const changeCategory = (restaurant) => {
-  const restaurantCategory = document.querySelector('.category');
-
   restaurantCategory.textContent = restaurant.kitchen;
-}
+};
 
 const renderItems = (data) => {
   data.forEach(({description, id, image, name, price}) => {
@@ -59,9 +47,6 @@ if (localStorage.getItem('restaurant')) {
   const restaurant = JSON.parse(localStorage.getItem('restaurant'));
 
   changeTitle(restaurant);
-  changeRating(restaurant);
-  changePrice(restaurant);
-  changeCategory(restaurant);
 
   fetch(`./db/${restaurant.products}`)
     .then((response) => response.json())
